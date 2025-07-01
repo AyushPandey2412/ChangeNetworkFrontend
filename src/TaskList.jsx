@@ -2314,7 +2314,7 @@ const TaskList = ({ refresh, searchText }) => {
                   // View Mode
                   <div className="space-y-3">
                     <div className="flex justify-between items-start">
-                      <h3 className={`text-base sm:text-lg font-semibold text-slate-800 ${task.status === 'Done' ? 'line-through text-gray-500' : ''} pr-2`}>
+                      <h3 className={`text-base sm:text-lg font-semibold text-blue-700 ${task.status === 'Done' ? 'line-through text-gray-500' : ''} pr-2`}>
                         {task.title}
                       </h3>
                       <div className="flex gap-1">
