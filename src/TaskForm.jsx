@@ -246,7 +246,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { PlusCircle, XCircle } from 'lucide-react';
-const url="https://streamsyncbackend-9m1g.onrender.com";
+const url="https://changenetworktaskmana.onrender.com";
 const TaskForm = ({ onTaskCreated }) => {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({

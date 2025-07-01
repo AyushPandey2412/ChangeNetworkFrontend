@@ -1467,7 +1467,7 @@ import {
   Edit3,
   Save
 } from 'lucide-react';
-const url="https://streamsyncbackend-9m1g.onrender.com";
+const url="https://changenetworktaskmana.onrender.com";
 
 const TaskList = ({ refresh, searchText }) => {
   const [tasks, setTasks] = useState([]);
