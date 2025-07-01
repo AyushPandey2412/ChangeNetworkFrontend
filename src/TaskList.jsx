@@ -1755,7 +1755,7 @@ const TaskList = ({ refresh, searchText }) => {
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
               >
-                <option value="">All Statuse</option>
+                <option value="">All Status</option>
                 <option>To Do</option>
                 <option>In Progress</option>
                 <option>Done</option>
