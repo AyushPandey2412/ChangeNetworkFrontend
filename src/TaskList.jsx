@@ -1467,6 +1467,7 @@ import {
   Edit3,
   Save
 } from 'lucide-react';
+const url="https://streamsyncbackend-9m1g.onrender.com";
 
 const TaskList = ({ refresh, searchText }) => {
   const [tasks, setTasks] = useState([]);
@@ -1484,11 +1485,11 @@ const TaskList = ({ refresh, searchText }) => {
     inprogress: 0,
     done: 0,
   });
-
+  
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/api/tasks');
+      const res = await axios.get(`${url}/api/tasks`);
       setTasks(res.data);
     } catch (err) {
       console.error(err);
@@ -1546,7 +1547,7 @@ const TaskList = ({ refresh, searchText }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this task?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+      await axios.delete(`${url}/api/tasks/${id}`);
       fetchTasks();
     } catch (err) {
       console.error(err);
@@ -1556,7 +1557,7 @@ const TaskList = ({ refresh, searchText }) => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/tasks/${id}`, { status: newStatus });
+      await axios.patch(`${url}/api/tasks/${id}`, { status: newStatus });
       fetchTasks();
     } catch (err) {
       console.error(err);
@@ -1566,7 +1567,7 @@ const TaskList = ({ refresh, searchText }) => {
 
   const handleEdit = async () => {
     try {
-      const updatedTask = await axios.put(`http://localhost:5000/api/tasks/${selectedTask._id}`, editForm);
+      const updatedTask = await axios.put(`${url}/api/tasks/${selectedTask._id}`, editForm);
       setSelectedTask(updatedTask.data);
       setIsEditing(false);
       fetchTasks();

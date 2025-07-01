@@ -246,7 +246,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { PlusCircle, XCircle } from 'lucide-react';
-
+const url="https://streamsyncbackend-9m1g.onrender.com";
 const TaskForm = ({ onTaskCreated }) => {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
@@ -265,7 +265,7 @@ const TaskForm = ({ onTaskCreated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/tasks', form);
+      await axios.post(`${url}/api/tasks`, form);
       setForm({
         title: '',
         description: '',
