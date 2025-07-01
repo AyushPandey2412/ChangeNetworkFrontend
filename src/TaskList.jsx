@@ -2765,9 +2765,9 @@ const TaskList = ({ refresh, searchText }) => {
         <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filteredTasks.length === 0 ? (
             <div className="col-span-full">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 sm:p-12 text-center border-2 border-dashed border-gray-200">
+              <div className="p-8 sm:p-12 text-center">
                 <div className="flex flex-col items-center space-y-4">
-                  <div className="bg-white rounded-full p-4 shadow-sm">
+                  <div className="rounded-full p-4">
                     {emptyState.icon}
                   </div>
                   <div className="space-y-2">
