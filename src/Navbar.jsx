@@ -65,7 +65,7 @@ const Navbar = ({ searchText, setSearchText }) => {
           <LayoutDashboard className="text-green-600 group-hover:text-green-700 transition-colors duration-300" size={24} />
         </div>
         <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-600 bg-clip-text text-transparent tracking-tight">
-          TeamBoard
+          TaskFlow
         </h1>
       </div>
       
