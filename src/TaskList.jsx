@@ -3575,7 +3575,6 @@ const TaskList = ({ refresh, searchText }) => {
     done: 0,
   });
 
-  // More dynamic header content with simple text
   const [headerIndex, setHeaderIndex] = useState(0);
   const headerOptions = [
     { title: "Task Dashboard", subtitle: "Organize your workflow" },
@@ -3595,7 +3594,7 @@ const TaskList = ({ refresh, searchText }) => {
     return () => clearInterval(interval);
   }, []);
   
-  // Function to get due date status
+
   const getDueDateStatus = (dueDate) => {
     if (!dueDate) return { status: 'none', daysLeft: null };
     
@@ -3617,7 +3616,6 @@ const TaskList = ({ refresh, searchText }) => {
     }
   };
 
-  // Function to get card styling based on due date
   const getCardStyling = (task) => {
     if (task.status === 'Done') {
       return 'bg-white opacity-60';
@@ -3639,7 +3637,7 @@ const TaskList = ({ refresh, searchText }) => {
     }
   };
 
-  // Function to get due date indicator
+  
   const getDueDateIndicator = (task) => {
     const dueDateStatus = getDueDateStatus(task.dueDate);
     
@@ -3677,7 +3675,7 @@ const TaskList = ({ refresh, searchText }) => {
     }
   };
 
-  // Info tooltip component
+  
   const InfoTooltip = ({ taskId }) => {
     return (
       <div className="relative">
@@ -3781,7 +3779,7 @@ const TaskList = ({ refresh, searchText }) => {
     setStatusCounts({ todo, inprogress, done });
   }, [tasks, statusFilter, searchText, sortBy, pinned]);
 
-  // Close tooltip when clicking outside
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (showTooltip && !event.target.closest('.relative')) {
@@ -3871,7 +3869,7 @@ const TaskList = ({ refresh, searchText }) => {
     }
   };
 
-  // Function to determine empty state content based on filters
+  
   const getEmptyStateContent = () => {
     if (searchText) {
       return {
@@ -3941,7 +3939,7 @@ const TaskList = ({ refresh, searchText }) => {
   return (
     <div className="min-h-screen p-3 sm:p-6">
       <div className="max-w-7xl mx-auto">
-        {/* Dynamic Header Section */}
+        
         <div className="bg-white rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-sm">
           <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 sm:gap-4">
             <div>
@@ -3970,7 +3968,7 @@ const TaskList = ({ refresh, searchText }) => {
           </div>
         </div>
 
-        {/* Filters Section */}
+        
         <div className="bg-white rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div className="relative">
@@ -4002,7 +4000,7 @@ const TaskList = ({ refresh, searchText }) => {
           </div>
         </div>
 
-        {/* Cards Grid */}
+      
         <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filteredTasks.length === 0 ? (
             <div className="col-span-full">
@@ -4115,7 +4113,6 @@ const TaskList = ({ refresh, searchText }) => {
                     </div>
                   </div>
                 ) : (
-                  // View Mode
                   <div className="space-y-3">
                     <div className="flex justify-between items-start">
                       <h3 className={`text-base sm:text-lg font-semibold text-gray-900 ${task.status === 'Done' ? 'line-through' : ''} pr-2`}>
@@ -4146,8 +4143,6 @@ const TaskList = ({ refresh, searchText }) => {
                         </button>
                       </div>
                     </div>
-
-                    {/* Due Date Indicator */}
                     {getDueDateIndicator(task) && (
                       <div className="flex justify-start">
                         {getDueDateIndicator(task)}
