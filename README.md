@@ -1,12 +1,58 @@
-# React + Vite
+# 🧩 TaskFlow — Collaborative Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive task management app built using the **MERN Stack** (MongoDB, Express, React, Node.js). Easily manage tasks with smart filtering, pinning, sorting, and due-date visual cues — built to help teams stay focused and organized.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+- 🌐 Frontend: [https://change-network-frontend-xi.vercel.app](https://change-network-frontend-xi.vercel.app)
+- 🔗 Backend API: [https://changenetworktaskmana.onrender.com](https://changenetworktaskmana.onrender.com)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Tech Stack
+
+| Layer     | Technology |
+|-----------|------------|
+| Frontend  | React (Vite), Tailwind CSS, Lucide Icons |
+| Backend   | Node.js, Express |
+| Database  | MongoDB Atlas |
+| Hosting   | Vercel (Frontend), Render (Backend) |
+
+---
+
+## ✨ Core Features
+
+- ✅ Create, view, edit and delete tasks
+- ✅ Update task status : `To Do`, `In Progress`, `Done`
+- ✅ Assign tasks to teammates
+- ✅ Add due dates and set priority (`Low`, `Medium`, `High`)
+- ✅ Filter tasks by status, title, or assignee
+- ✅ Sort tasks by due date or priority
+- ✅ Responsive layout for mobile & desktop
+
+---
+
+## 🧠 Smart UX Features
+
+- 📌 **Pin Tasks**  
+  Tasks can be pinned for high visibility and always appear at the top.
+
+- 🎨 **Color-Coded Task Cards by Due Date**  
+  Task background color changes based on how close the deadline is:
+
+  | Color     | Meaning                            |
+  |-----------|------------------------------------|
+  | 🔴 Red     | Overdue                            |
+  | 🟠 Orange  | Due today                          |
+  | 🟡 Yellow  | Due in 1–2 days                    |
+  | 🔵 Blue    | Due in 3–7 days                    |
+  | ⚪ White   | No due date / Due in 7+ days       |
+  | ✅ Faded   | Completed (status: Done)           |
+
+- 📊 **Dashboard Summary**  
+  Visual badges show live count of `To Do`, `In Progress`, and `Done` tasks.
+
+
+
