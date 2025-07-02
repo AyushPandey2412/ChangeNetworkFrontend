@@ -3032,50 +3032,48 @@ const TaskList = ({ refresh, searchText }) => {
     
     switch (dueDateStatus.status) {
       case 'overdue':
-        return 'bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500';
+        return 'bg-white border-l-4 border-red-500';
       case 'today':
-        return 'bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500';
+        return 'bg-white border-l-4 border-orange-500';
       case 'urgent':
-        return 'bg-gradient-to-br from-yellow-50 to-yellow-100 border-l-4 border-yellow-500';
+        return 'bg-white border-l-4 border-yellow-500';
       case 'upcoming':
-        return 'bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500';
+        return 'bg-white border-l-4 border-blue-500';
       default:
         return 'bg-white';
     }
   };
 
-  // Function to get due date indicator
-  const getDueDateIndicator = (task) => {
+  // Function to get due date button/icon
+  const getDueDateButton = (task) => {
     const dueDateStatus = getDueDateStatus(task.dueDate);
+    
+    const buttonBase = "p-1.5 rounded-lg transition-colors text-xs font-medium";
     
     switch (dueDateStatus.status) {
       case 'overdue':
         return (
-          <div className="flex items-center gap-1 text-xs font-medium text-red-700 bg-red-100 px-2 py-1 rounded-full">
-            <AlertTriangle size={10} />
-            <span>Overdue {dueDateStatus.daysLeft}d</span>
-          </div>
+          <button className={`${buttonBase} bg-red-100 text-red-600 hover:bg-red-200`} title={`Overdue by ${dueDateStatus.daysLeft} days`}>
+            <AlertTriangle size={12} />
+          </button>
         );
       case 'today':
         return (
-          <div className="flex items-center gap-1 text-xs font-medium text-orange-700 bg-orange-100 px-2 py-1 rounded-full">
-            <Clock size={10} />
-            <span>Due Today</span>
-          </div>
+          <button className={`${buttonBase} bg-orange-100 text-orange-600 hover:bg-orange-200`} title="Due Today">
+            <Clock size={12} />
+          </button>
         );
       case 'urgent':
         return (
-          <div className="flex items-center gap-1 text-xs font-medium text-yellow-700 bg-yellow-100 px-2 py-1 rounded-full">
-            <Clock size={10} />
-            <span>{dueDateStatus.daysLeft}d left</span>
-          </div>
+          <button className={`${buttonBase} bg-yellow-100 text-yellow-600 hover:bg-yellow-200`} title={`${dueDateStatus.daysLeft} days left`}>
+            <Clock size={12} />
+          </button>
         );
       case 'upcoming':
         return (
-          <div className="flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">
-            <Calendar size={10} />
-            <span>{dueDateStatus.daysLeft}d left</span>
-          </div>
+          <button className={`${buttonBase} bg-blue-100 text-blue-600 hover:bg-blue-200`} title={`${dueDateStatus.daysLeft} days left`}>
+            <Calendar size={12} />
+          </button>
         );
       default:
         return null;
@@ -3466,7 +3464,8 @@ const TaskList = ({ refresh, searchText }) => {
                       <h3 className={`text-base sm:text-lg font-semibold text-gray-900 ${task.status === 'Done' ? 'line-through' : ''} pr-2`}>
                         {task.title}
                       </h3>
-                      <div className="flex gap-1">
+                      <div className="flex gap-1 items-center">
+                        {getDueDateButton(task)}
                         <button
                           onClick={() => togglePin(task._id)}
                           className="p-1.5 transition-colors"
@@ -3492,12 +3491,7 @@ const TaskList = ({ refresh, searchText }) => {
                       </div>
                     </div>
 
-                    {/* Due Date Indicator */}
-                    {getDueDateIndicator(task) && (
-                      <div className="flex justify-start">
-                        {getDueDateIndicator(task)}
-                      </div>
-                    )}
+                    {/* Due Date Indicator - Removed */}
                     
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {task.description}
